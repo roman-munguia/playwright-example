@@ -10,7 +10,7 @@ test.describe('Home Page Tests', () => {
   });
 
   test('homepage logo exists', async ({ page }) => {
-    await homePage.goto();
+    await homePage.closeCookiesDialog();
     await homePage.expectLogoVisible();
   });
 });
