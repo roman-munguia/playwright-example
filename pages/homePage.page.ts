@@ -1,7 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { homePageLocators } from '../locators/homePage.locators';
 import { BasePage } from './basePage.page';
-import { promises } from 'dns';
 
 export class HomePage extends BasePage {
   readonly logo: Locator;
@@ -11,11 +10,11 @@ export class HomePage extends BasePage {
     this.logo = page.locator(homePageLocators.logo).first();
   }
 
-  async goto(): Promise<void> {
+  async goTo(): Promise<void> {
     await this.page.goto('/');
   }
 
   async expectLogoVisible(): Promise<void> {
-    await expect(this.logo).toBeAttached();
+    await expect(this.logo).toBeVisible();
   }
 }

@@ -2,13 +2,14 @@
   "name": "playwright-example",
   "version": "1.0.0",
   "description": "Example automation framework using Playwright and TS",
-  "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.56.0",
+    "@playwright/test": "^1.62.1",
     "@types/node": "^24.0.13"
   }
 }

@@ -1,8 +1,6 @@
-import { expect, Locator, Page } from '@playwright/test';
-import { homePageLocators } from '../locators/homePage.locators';
-import { BasePage } from './basePage.page';
-import { promises } from 'dns';
+import { Locator, Page } from '@playwright/test';
 import { contactUsPageLocators } from '../locators/contactUsPage.locators';
+import { BasePage } from './basePage.page';
 
 export class ContactUsPage extends BasePage {
   readonly firstNameInput: Locator;
@@ -16,18 +14,17 @@ export class ContactUsPage extends BasePage {
     this.firstNameInput = page.locator(contactUsPageLocators.firstNameInput);
     this.lastNameInput = page.locator(contactUsPageLocators.lastNameInput);
     this.emailInput = page.locator(contactUsPageLocators.emailInput);
-    this.messageInput = page.locator(contactUsPageLocators.emailInput);
-    this.unlockDedicatedTalentInput = page.locator(contactUsPageLocators.unlockDedicatedTalentInput);
+    this.messageInput = page.locator(contactUsPageLocators.messageInput);
+    this.unlockDedicatedTalentInput = page.locator(
+      contactUsPageLocators.unlockDedicatedTalentInput
+    );
   }
 
   async goTo(): Promise<void> {
     await this.page.goto('/contact-us/');
   }
 
-  async goToContactUs(): Promise<void> {
-    await this.contactUsBttn.click();
-  }
-
+  // Fills the form without submitting it, so no real requests are sent.
   async fillContactForm(): Promise<void> {
     await this.firstNameInput.fill('Roman');
     await this.lastNameInput.fill('Munguia');
